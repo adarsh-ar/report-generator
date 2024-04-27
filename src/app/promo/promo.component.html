@@ -1,0 +1,42 @@
+<main class="container pico">
+  <nav>
+    <li>Promo Request Creation</li>
+  </nav>
+  <article>
+    <form [formGroup]="promoGroup" (ngSubmit)="createRequest()">
+      <label for="firstName"> First Name</label>
+      <input type="text" formControlName="firstName" placeholder="Jhon" />
+      <label for="lastName"> Last Name</label>
+      <input type="text" formControlName="lastName" placeholder="Honai" />
+      <label for="email"> Email</label>
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="j.Honai@email.com"
+      />
+      <label for="phoneNo"> Phone#</label>
+      <input
+        type="tel"
+        formControlName="phoneNo"
+        placeholder="999-999-9999"
+        appPhoneNoDirective
+        maxlength="12"
+      />
+      <label for="Message"> Message </label>
+      <textarea
+        formControlName="msg"
+        placeholder="Hey there! I'm thrilled about setting up and utilizing the new promotion code for my clothing website. When can we get started on this exciting endeavor?"
+      ></textarea>
+      <button type="submit" [disabled]="!promoGroup.valid">Submit</button>
+    </form>
+  </article>
+  <dialog [open]="canOpen">
+    <article>
+      <h2>Thank You for Your Interest!</h2>
+      <p>
+        Your request is in! 🚀 We're crafting your promo code now. Stay tuned
+        for sweet savings! 🛍️✨
+      </p>
+    </article>
+  </dialog>
+</main>

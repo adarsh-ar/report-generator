@@ -1,0 +1,45 @@
+<section class="pico login-section">
+  <article>
+    <h3>Login</h3>
+    <hr />
+    <form [formGroup]="loginForm" (ngSubmit)="validateCode()">
+      <div>
+        <label for="userName">Promo code</label>
+        <fieldset role="group">
+          <input
+            type="text"
+            id="usernae"
+            autofocus
+            autocomplete="off"
+            formControlName="promoCode"
+          />
+          <button [disabled]="!loginForm.valid">Submit</button>
+        </fieldset>
+      </div>
+      <br />
+    </form>
+  </article>
+  <dialog [open]="createPromo">
+    <article>
+      <h2>Oops!! Your Membership is expired</h2>
+      <p>
+        Oops! It looks like the promotion code you entered has expired or is
+        invalid. But don't worry, we've got you covered!
+      </p>
+      <p>
+        If you're in need of a fresh promo code to unlock fantastic savings,
+        simply raise a new request, and we'll make sure you get access to the
+        latest and greatest deals. Our team is here to ensure you never miss out
+        on an opportunity to save.
+      </p>
+      <p>
+        Thank you for choosing us, and we appreciate your understanding. Let's
+        get you back to saving in no time!
+      </p>
+      <footer>
+        <button className="secondary" (click)="closePopUp()">Cancel</button>
+        <button (click)="redirectToPromo()">Confirm</button>
+      </footer>
+    </article>
+  </dialog>
+</section>
